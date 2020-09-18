@@ -1,0 +1,7 @@
+*.sqlite
+data/
+db
+dl
+*.swp
+autoshared
+
