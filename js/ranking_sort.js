@@ -13,22 +13,22 @@ var head_fields = [
 	},
 	{
 		'name': 'gpart1',
-		'title': 'Contig&nbsp;1',
+                'title': 'Contig&nbsp;accession number&nbsp;in genome&nbsp;1',
 		'desc': 'Name of the contig of the genome 1'
 	},
 	{
 		'name': 'gpart2',
-		'title': 'Contig&nbsp;2',
+                'title': 'Contig&nbsp;accession number&nbsp;in genome&nbsp;2',
 		'desc': 'Name of the contig of the genome 2'
 	},
 	{
 		'name': 'tRNA_both',
-		'title': 'tRNAs',
+                'title': 'tRNA&nbsp;genes present&nbsp;in&nbsp;the genomic&nbsp;islands',
 		'desc': '"2/both" if a tRNA is present in the break in both genomes, "1/one" if only in one genome'
 	},
 	{
 		'name': 'tRNA_both_ext',
-		'title': 'tRNAs extremities',
+                'title': 'tRNA&nbsp;genes adjacent&nbsp;to&nbsp;the genomic&nbsp;islands',
 		'desc': '"2/both" if tRNAs are at an extremity of the break in both genomes, "1/one" if only in one genome'
 	},
 	{
@@ -38,12 +38,12 @@ var head_fields = [
 	},
 	{
 		'name': 'break_size2',
-		'title': 'CDS&nbsp;1',
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the genomic&nbsp;islands in&nbsp;genome&nbsp;1',
 		'desc': 'Total number of CDS found in the break in genome 1'
 	},
 	{
 		'name': 'break_size1',
-		'title': 'CDS&nbsp;2',
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the genomic&nbsp;islands in&nbsp;genome&nbsp;2',
 		'desc': 'Total number of CDS found in the break in genome 2'
 	},
 	{
