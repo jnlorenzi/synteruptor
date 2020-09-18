@@ -1,0 +1,91 @@
+#logo {
+	float: right;
+	margin-left: 15px;
+	width: 100px;
+	border: 1px solid black;
+}
+
+#sitelink {
+	height: 40px;
+	width: 176px;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+.index_box {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	border: 1px solid #aaa;
+	padding: 10px;
+	box-shadow: 0px 0px 5px #AAA;
+}
+
+.box {
+	border: 1px solid #AAA;
+	background: #CCF;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 20em;
+}
+
+a.table-row {
+	text-decoration: none;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+@media screen and (max-width: 800px) {
+	#databases {
+		width: 100%;
+		overflow-x: auto;
+	}
+}
+
+/*
+#databases table {
+	border-spacing: 3px;
+	border-collapse: separate;
+}
+
+#databases td, #databases tr, #databases th, #databases .table-row {
+	border: none;
+}
+*/
+
+#databases td {
+	padding: 6px;
+}
+
+
+#site_description {
+	display: inline-block;
+	width: 80%;
+}
+
+#tail {
+	display: inline-block;
+	width: 200px;
+	vertical-align: top;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#tail ul {
+	list-style-type: none;
+	margin-top: none;
+}
+#tail ul li {
+	display: inline;
+	margin-right: 40px;
+}
+
+@media screen and (max-width: 1200px) {
+	#site_description, #tail {
+		width: 100%;
+	}
+}
+
