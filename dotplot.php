@@ -2,7 +2,7 @@
 <html>
 	<head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Breaks dotplot</title>
+		<title>Dotplot</title>
 		<link rel="icon" type="image/png" href="css/Synteruptor_logo_square.png">
 		<script type="text/javascript" src="js/jquery/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery/jquery.storageapi.min.js"></script>
@@ -20,12 +20,12 @@
 	<body>
 <?php
 require_once("common.php");
-print_header("viewer", "Breaks dotplot");
+print_header("viewer", "Dotplot");
 ?>
 	<div id="content">
 		<div id="leftcol">
-			<h2>Breaks Dotplot</h2>
-			<a id="ranking">Breaks ranking</a>
+			<h2>Dotplot</h2>
+			<a id="ranking">List of the genomic islands</a>
 			<div id="loading"></div>
 			<div id="links">
 			</div>
@@ -34,19 +34,19 @@ print_header("viewer", "Breaks dotplot");
 				<div class="field1">
 				<h4>Genome 1</h4>
 					<select id="sp1" name="select1"></select><br />
-					<input type="number" id="start1" value=0 min=0 step=1><input type="number" id="end1" value=0 min=0 step=1><button type="submit" class="submitbutton">Update</button><br />
+					<input type="number" id="start1" value=0 min=0 step=1><input type="number" id="end1" value=0 min=0 step=1><button type="submit" class="submitbutton">Update</button><br>
 					<button type="button" id="clear1">Reset coordinates</button>
 				<hr>
 				<h4>Genome 2</h4>
 				<select id="sp2" name="select2"></select><br />
-				<input type="number" id="start2" value=0 min=0 step=1><input type="number" id="end2" value=0 min=0 step=1><button type="submit" class="submitbutton">Update</button><br />
+				<input type="number" id="start2" value=0 min=0 step=1><input type="number" id="end2" value=0 min=0 step=1><button type="submit" class="submitbutton">Update</button><br/>
 				<button type="button" id="clear2">Reset coordinates</button>
 				<hr>
 				<button id="swapper" type="button">Swap genomes</button>
 				<hr>
 				<button type="button" id="clearall">Reset both coordinates</button>
 				</div>
-				<div class="field2">
+				<div class="field2" id="params">
 				<h4>Breaks filter<span class="information" title="Limit the number of breaks displayed with a filter on the size of the breaks in both genomes.">?</span></h4>
 				<span id="filter_box"></span>
 				<div id='filter_plot'></div>

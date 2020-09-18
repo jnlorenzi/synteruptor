@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Breaks ranking</title>
+		<title>List of the genomic islands</title>
 		<link rel="icon" type="image/png" href="css/Synteruptor_logo_square.png">
 		<link rel="stylesheet" type="text/css" href="css/common.css">
 		<link rel="stylesheet" type="text/css" href="css/ranking.css">
@@ -20,10 +20,10 @@
 	<body>
 <?php
 require_once("common.php");
-print_header("viewer", "Breaks ranking");
+print_header("viewer", "List of the genomic islands");
 ?>
 	<div id="content">
-		<h2>Breaks ranking</h2>
+		<h2>List of the genomic islands</h2>
 		<a id="dotplot_link" href="dotplot.php">Breaks dotplot</a>
 		<div id="message" style="display:none"></div>
 		<div id="stats">
