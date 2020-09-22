@@ -171,9 +171,9 @@ function draw_line(svg, num, start, end, clas) {
 
 function draw_title(group, title, num) {
 	if (num == 1) {
-		height = 20;
+		height = -10;
 	} else {
-		height = 20 + sizes.sep;
+		height = -10 + sizes.sep;
 	}
 	var title = group.append( "text" )
 		.attr( "x", margin.title )
@@ -198,17 +198,17 @@ function draw_legend(group, stats, scale, sp1, sp2) {
 	var lefttext = group.append( "text" )
 		.attr("x", margin.left + 5)
 		.attr("y", margin.toptext)
-		.text("Left block")
+		.text("Left synteny block")
 		.attr("text-anchor", "start");
 	var righttext = group.append( "text" )
 		.attr("x", sizes.win_width - margin.right)
 		.attr("y", margin.toptext)
-		.text("Right block")
+		.text("Right synteny block")
 		.attr("text-anchor", "end");
 	var breaktext = group.append( "text" )
 		.attr("x", (scale(stats.sep_right + stats.sep_left) + margin.left)/2)
 		.attr("y", margin.toptext)
-		.text("Genes in the break")
+                .text("Genomic island")
 		.attr("text-anchor", "middle");
 	// Scale bar
 	var inbetween = (stats.sep_right - stats.sep_left) / 5;
@@ -605,9 +605,9 @@ function build_table (data, block, num, direction) {
 			blast_link,
 			seqid,
 			product,
-			dir_sign + "&nbsp;" + len,
 			format_number(gene_data['loc_start']),
 			format_number(gene_data['loc_end']),
+                        dir_sign + "&nbsp;" + len,
 			gcbox
 		];
 		

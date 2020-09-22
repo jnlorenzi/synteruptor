@@ -24,7 +24,7 @@ print_header("viewer", "List of the genomic islands");
 ?>
 	<div id="content">
 		<h2>List of the genomic islands</h2>
-		<a id="dotplot_link" href="dotplot.php">Breaks dotplot</a>
+		<a id="dotplot_link" href="dotplot.php">Dotplot</a>
 		<div id="message" style="display:none"></div>
 		<div id="stats">
 			<div class="field1">

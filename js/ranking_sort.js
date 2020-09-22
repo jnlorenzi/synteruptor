@@ -48,12 +48,12 @@ var head_fields = [
 	},
 	{
 		'name': 'noorthos1',
-		'title': 'CDS without orthologs&nbsp;1',
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;1 without&nbsp;ortholog in&nbsp;genome&nbsp;2',
 		'desc': 'Number of CDS in the break in genome 1 without any orthologs in the genome 2'
 	},
 	{
 		'name': 'noorthos2',
-		'title': 'CDS without orthologs&nbsp;2',
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;2 without&nbsp;ortholog in&nbsp;genome&nbsp;1',
 		'desc': 'Number of CDS in the break in genome 2 without any orthologs in the genome 1'
 	},
 	{

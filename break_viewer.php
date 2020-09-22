@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Breaks viewer</title>
+		<title>Genomic island viewer</title>
 		<link rel="icon" type="image/png" href="css/Synteruptor_logo_square.png">
 		<link rel="stylesheet" type="text/css" href="css/common.css">
 		<link rel="stylesheet" type="text/css" href="css/break_viewer.css">
@@ -22,7 +22,7 @@ if (isset($_GET["breakid"])) {
 print_header("viewer", $name);
 ?>
 	<div id="content">
-		<h2 id="break_title">Breaks viewer</h2>
+		<h2 id="break_title">Genomic island viewer</h2>
 		<div id="loading"></div>
 		<div id="message"></div>
 		<div id ="data_content">
@@ -55,12 +55,11 @@ print_header("viewer", $name);
 			</table>
 		</div>
 		<div id="genes_tables">
-			<h2>Left block</h2>
+			<h2>Left synteny block</h2>
 			<table id="left_block" style="display: none; clear: both; background: inherit;">
 			<tr>
 				<td><table id="left1" class="genes"></table></td>
 				<td><table id="left2" class="genes"></table></td>
-			
 			</table>
 			<div style="clear: both;"></div>
 			<h2>Genes in the break</h2>
@@ -71,7 +70,7 @@ print_header("viewer", $name);
 			</tr>
 			</table>
 			<div style="clear: both;"></div>
-			<h2>Right block</h2>
+			<h2>Right synteny block</h2>
 			<table id="right_block" style="display: none; clear: both">
 			<tr>
 				<td><table id="right1" class="genes"></table></td>
