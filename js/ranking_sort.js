@@ -68,22 +68,22 @@ var head_fields = [
 	},
 	{
 		'name': 'content1',
-		'title': 'Content&nbsp;1',
+                'title': 'Genes&nbsp;annotations overview&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;1',
 		'desc': 'Summary of the genes annotations in the break in genome 1'
 	},
 	{
 		'name': 'content2',
-		'title': 'Content&nbsp;2',
+                'title': 'Genes&nbsp;annotations overview&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;2',
 		'desc': 'Summary of the genes annotations in the break in genome 2'
 	},
 	{
 		'name': 'fromto1',
-		'title': 'From-to&nbsp;1',
+                'title': 'Genes&nbsp;edging&nbsp;the genomic&nbsp;island in&nbsp;genome&nbsp;1',
 		'desc': 'Order of the genes in the break in genome 1'
 	},
 	{
 		'name': 'fromto2',
-		'title': 'From-to&nbsp;2',
+                'title': 'Genes&nbsp;edging&nbsp;the genomic&nbsp;island in&nbsp;genome&nbsp;2',
 		'desc': 'Order of the genes in the break in genome 2'
 	},
 	{

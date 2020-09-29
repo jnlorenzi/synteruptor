@@ -177,6 +177,7 @@ function update() {
 		// Retrieve all data between the genomes
 		console.log("Download data.");
 		loading_on();
+                
 		cached_data_ajax = $.getJSON( urls.get_data, rankpars, function(data) {
 			var predata = preprocess_data(data);
 			cached_data[ pars.sp1 + pars.sp2 ] = predata;
@@ -248,9 +249,9 @@ function preprocess_data(data) {
 		}
 		bdata.noorthos1 = bdata.real_size2;
 		bdata.noorthos2 = bdata.real_size1;
-		
-		bdata['fromto1'] = bdata['pnum_all_left1'] + ' - ' + bdata['pnum_all_right1'];
-		bdata['fromto2'] = bdata['pnum_all_left2'] + ' - ' + bdata['pnum_all_right2'];
+                
+                bdata['fromto1'] = bdata['left1'] + ' - ' + bdata['right1'];
+		bdata['fromto2'] = bdata['left2'] + ' - ' + bdata['right2'];
 		bdata['cycle_'] = (bdata['cycle'] > 2 ? bdata['cycle'] : "<span class='insignificant'>2</span>");
 		bdata['cycle_'] = aligner_link(bdata);
 		data[b] = bdata;
