@@ -6,7 +6,7 @@ function create_filter_box() {
 		$basic = $( "<span id='basic_box'>" );
 		$basic
 			.hide()
-			.append( "<span>Show breaks of size at least <input type='number' id='break_min' value=0 min=0 max=999 step=1 style='width:3em;'></input></span>" )
+			.append( "<span>Show genomic islands of size at least <input type='number' id='break_min' value=0 min=0 max=999 step=1 style='width:3em;'></input></span>" )
 			.append( "<span>&nbsp;CDS, found in <select id='filter_selection'></select></span>" )
 			.append( "<span class='filter_switch' title='Change to advanced filter'>&gt;&gt;</span>" );
 //                         .append(get_par( "sp1" ));
@@ -297,7 +297,7 @@ function draw_filter_plot(sequence, break_min) {
 		.attr("x", x( maxX/2 ) )
 		.attr("y", y( 0 ) + 27 )
 		.attr("text-anchor", "middle")
-		.text( "Minimum size of breaks" );
+		.text( "Minimum size of genomic islands" );
 
 	// Add the Y Axis
 	svg.append("g")
@@ -306,9 +306,9 @@ function draw_filter_plot(sequence, break_min) {
 	// And its legend
 	svg.append("text")
 		.attr("class", "axis_legend")
-		.attr("x", 70 )
-		.attr("y", 35 )
-		.attr("transform", "rotate(90)" )
+		.attr("x", -65 )
+		.attr("y", -25 )
+		.attr("transform", "rotate(-90)" )
 		.attr("text-anchor", "middle")
 		.text( "Number of breaks" );
 	

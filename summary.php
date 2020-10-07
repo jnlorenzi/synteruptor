@@ -21,7 +21,7 @@
 			<div id="links" style="display:none"><ul></ul></div>
 			<div class="centered_box">
 			<h3>Analysis of the synteny breaks in the database</h3>
-			<p>Pairwise comparison of all genomes, with links to the breaks dotplot and the breaks ranking of each comparison.</p>
+			<p>Pairwise comparison of all genomes, with links to the breaks dotplot and the genomic islands ranking of each comparison.</p>
 			</div>
 			<table id="links_table" style="display:none"></table>
 			<div class="centered_box">

@@ -47,7 +47,7 @@ print_header("viewer", "Dotplot");
 				<button type="button" id="clearall">Reset both coordinates</button>
 				</div>
 				<div class="field2" id="params">
-				<h4>Breaks filter<span class="information" title="Limit the number of breaks displayed with a filter on the size of the breaks in both genomes.">?</span></h4>
+				<h4>Filter<span class="information" title="Limit the number of breaks displayed with a filter on the size of the genomic islands in both genomes.">?</span></h4>
 				<span id="filter_box"></span>
 				<div id='filter_plot'></div>
 				</div>
