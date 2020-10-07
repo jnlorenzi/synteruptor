@@ -48,6 +48,15 @@ require_once('common.php');
 				} else {
 					echo "<p>No public database available</p>";
 				}
+				// Direct access to the genomic islands
+				echo "<h3>Direct access to the genomic islands</h3>";
+				if ($allowed) {
+					echo "<p>The genomic islands identified in the previous databases can be directly accessed with their identifier:</p>";
+					echo "<div class='button_container'><a href='direct_access.php'><div class='button_link'>Access to a genomic island</div></a></div>";
+					echo "<div id='databases'></div>";
+				} else {
+					echo "<p>No public database available</p>";
+				}
 				// Show database creator link if active
 				echo "<h3>Database creation</h3>";
 				if (get_setting("can_upload")) {

@@ -9,6 +9,7 @@
 		<script type="text/javascript" src="js/jquery/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>
 		<script type="text/javascript" src="js/summary.js"></script>
+
 	</head>
 	<?php require_once("common.php"); ?>
 	<body>

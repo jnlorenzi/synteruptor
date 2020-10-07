@@ -171,6 +171,7 @@ function links(can_search) {
 	$ul.append( li );
 
 	$("#links").append($ul);
+        
 }
 
 function create_table(pars) {

@@ -62,7 +62,7 @@ print_header("viewer", $name);
 				<td><table id="left2" class="genes"></table></td>
 			</table>
 			<div style="clear: both;"></div>
-			<h2>Genes in the break</h2>
+			<h2>Genomic island</h2>
 			<table id="breaks" style="display: none; clear: both">
 			<tr>
 				<td><table id="break1" class="genes"></table></td>
