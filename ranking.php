@@ -34,7 +34,7 @@ print_header("viewer", "List of the genomic islands");
 				<button id="swapper" type="button">Swap the genomes</button>
 			</div>
 			<div class="field2" id="params">
-				<h4>Breaks filter<span class="information" title="Limit the number of breaks displayed with a filter on the size of the breaks in both genomes.">?</span></h4>
+				<h4>Filter<span class="information" title="Limit the number of breaks displayed with a filter on the size of the breaks in both genomes.">?</span></h4>
 				<span id="filter_box"></span>
 				<div style='border: 1px solid black;' id='filter_plot'></div>
 			</div>

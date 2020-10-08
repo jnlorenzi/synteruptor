@@ -9,7 +9,7 @@ var head_fields = [
 	{
 		'name': 'breakid',
 		'title': 'id',
-		'desc': 'Identifier for this break'
+		'desc': 'Identifier for this genomic island'
 	},
 	{
 		'name': 'gpart1',
@@ -24,37 +24,37 @@ var head_fields = [
 	{
 		'name': 'tRNA_both',
                 'title': 'tRNA&nbsp;genes present&nbsp;in&nbsp;the genomic&nbsp;islands',
-		'desc': '"2/both" if a tRNA is present in the break in both genomes, "1/one" if only in one genome'
+		'desc': '"2/both" if a tRNA is present in the genomic island in both genomes, "1/one" if only in one genome'
 	},
 	{
 		'name': 'tRNA_both_ext',
                 'title': 'tRNA&nbsp;genes adjacent&nbsp;to&nbsp;the genomic&nbsp;islands',
-		'desc': '"2/both" if tRNAs are at an extremity of the break in both genomes, "1/one" if only in one genome'
+                'desc': '"2/both" if tRNAs are at an extremity of the genomic island in both genomes, "1/one" if only in one genome'
 	},
 	{
 		'name': 'cycle',
 		'title': 'Diversity',
-		'desc': 'Number of similar breaks found in other genomes'
+                'desc': 'Number of similar genomic islands found in other genomes'
 	},
 	{
 		'name': 'break_size2',
                 'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the genomic&nbsp;islands in&nbsp;genome&nbsp;1',
-		'desc': 'Total number of CDS found in the break in genome 1'
+                'desc': 'Total number of CDS found in the genomic island in genome 1'
 	},
 	{
 		'name': 'break_size1',
                 'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the genomic&nbsp;islands in&nbsp;genome&nbsp;2',
-		'desc': 'Total number of CDS found in the break in genome 2'
+                'desc': 'Total number of CDS found in the genomic island in genome 2'
 	},
 	{
 		'name': 'noorthos1',
                 'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;1 without&nbsp;ortholog in&nbsp;genome&nbsp;2',
-		'desc': 'Number of CDS in the break in genome 1 without any orthologs in the genome 2'
+                'desc': 'Number of CDS in the genomic island in genome 1 without any orthologs in the genome 2'
 	},
 	{
 		'name': 'noorthos2',
                 'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;2 without&nbsp;ortholog in&nbsp;genome&nbsp;1',
-		'desc': 'Number of CDS in the break in genome 2 without any orthologs in the genome 1'
+                'desc': 'Number of CDS in the genomic island in genome 2 without any orthologs in the genome 1'
 	},
 	{
 		'name': 'paralogs1',
@@ -78,28 +78,28 @@ var head_fields = [
 	},
 	{
 		'name': 'fromto1',
-                'title': 'Genes&nbsp;edging&nbsp;the genomic&nbsp;island in&nbsp;genome&nbsp;1',
-		'desc': 'Order of the genes in the break in genome 1'
+                'title': 'Genes&nbsp;flanking&nbsp;the genomic&nbsp;island in&nbsp;genome&nbsp;1',
+                'desc': 'Genes forming the break in genome 1'
 	},
 	{
 		'name': 'fromto2',
-                'title': 'Genes&nbsp;edging&nbsp;the genomic&nbsp;island in&nbsp;genome&nbsp;2',
-		'desc': 'Order of the genes in the break in genome 2'
+                'title': 'Genes&nbsp;flanking&nbsp;the genomic&nbsp;island in&nbsp;genome&nbsp;2',
+                'desc': 'Genes forming the break in genome 2'
 	},
 	{
 		'name': 'delta_GC1',
-		'title': 'Diff GC ratio 1',
+                'title': 'Diff&nbsp;GC ratio&nbsp;in genome&nbsp;1',
 		'desc': 'Difference of the GC ratio of the genes of this breaks with the GC ratio of the genome 1'
 	},
 	{
 		'name': 'delta_GC2',
-		'title': 'Diff GC ratio 2',
+                'title': 'Diff&nbsp;GC ratio&nbsp;in genome&nbsp;2',
 		'desc': 'Difference of the GC ratio of the genes of this breaks with the GC ratio of the genome 2'
 	},
 	{
 		'name': 'score',
-		'title': 'Score',
-		'desc': 'Total score'
+		'title': 'Custom score',
+		'desc': 'Total score with custom weigth by field'
 	},
 ];
 

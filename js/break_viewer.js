@@ -990,7 +990,35 @@ function break_info(info, num) {
 	var $break = $('#description' + num).text( 'Break in ' + info.sp + ' (part ' + info.gpart + '):' );
 	var $ul = $('<ul />');
 	if (info.content) {
-		$ul.append( $('<li />').html( "Content: " +  info.content ) );
+                const array_gene_add = ['CRISPR', 'phage', 'regulatory', 'resistance', 'transport'];
+                const array_element_add = ['mobile'];
+                const array_no_add = ['SM', 'tRNA'];
+                var new_info = [];
+                var handler_info = info.content;
+                var array_info = handler_info.split( "," );
+                for (var item in array_info) {
+                        var handler = array_info[item].split( " " );
+                        // remove space
+                        if (handler.length == 3){
+                                handler.shift();
+                        }
+                        // plural
+                        var plural = ''
+                        if (handler[0] > 1){
+                                var plural = 's';
+                        }
+                        if (array_gene_add.includes(handler[1])) {
+                                var handler = handler.concat('gene' + plural);
+                        }
+                        else if (array_element_add.includes(handler[1])) {
+                                var handler = handler.concat('element' + plural);
+                        }
+                        var new_handler = handler.join(' ');
+                        new_info.push(new_handler);
+                }
+                var temp_info = new_info.join( ', ' )
+                $ul.append( $('<li />').html( "Content: " +  temp_info) );
+//                 $ul.append( $('<li />').html( "Content: " +  info.content) );
 	}
 	var genes = 'no genes';
 	if ( info.ngenes == 1 ) {
