@@ -8,8 +8,8 @@ function create_filter_box() {
 			.hide()
 			.append( "<span>Show genomic islands of size at least <input type='number' id='break_min' value=0 min=0 max=999 step=1 style='width:3em;'></input></span>" )
 			.append( "<span>&nbsp;CDS, found in <select id='filter_selection'></select></span>" )
-			.append( "<span class='filter_switch' title='Change to advanced filter'>&gt;&gt;</span>" )
-                        .append(get_par( "sp1" ));
+			.append( "<span class='filter_switch' title='Change to advanced filter'>&gt;&gt;</span>" );
+//                         .append(get_par( "sp1" ));
 		$box.append( $basic );
 		$( "#filter_selection" )
 			.append( "<option value='atleast'>at least one genome</option>" )
