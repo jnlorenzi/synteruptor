@@ -58,13 +58,13 @@ var head_fields = [
 	},
 	{
 		'name': 'paralogs1',
-		'title': 'Paralogs&nbsp;1',
-		'desc': 'Paralogs 1: number of CDS in genome 1 with at least one paralog in the same genome'
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;1 with&nbsp;at&nbsp;least one&nbsp;paralog',
+		'desc': 'Number of CDS in genome 1 with at least one paralog in the same genome'
 	},
 	{
 		'name': 'paralogs2',
-		'title': 'Paralogs&nbsp;2',
-		'desc': 'Paralogs 2: number of CDS in genome 2 with at least one paralog in the same genome'
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;2 with&nbsp;at&nbsp;least one&nbsp;paralog',
+		'desc': 'Number of CDS in genome 2 with at least one paralog in the same genome'
 	},
 	{
 		'name': 'content1',
@@ -73,7 +73,7 @@ var head_fields = [
 	},
 	{
 		'name': 'content2',
-                'title': 'Genes&nbsp;annotations overview&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;2',
+                'title': 'Gene&nbsp;annotation overview&nbsp;in&nbsp;the&nbsp; genomic&nbsp;islands in&nbsp;genome&nbsp;2',
 		'desc': 'Summary of the genes annotations in the break in genome 2'
 	},
 	{

@@ -28,8 +28,9 @@ require_once('common.php');
 			<?php
 				$allowed = get_available_dbs_list();
 				if ($allowed) {
-					echo "<p>Select a database:</p>";
+					echo "<p>Select a database:";
 					echo "<div id='databases'></div>";
+					echo "</p>";
 				} else {
 					echo "<p>No public database available</p>";
 				}
@@ -37,9 +38,9 @@ require_once('common.php');
 			
 			<form action="cible_da.php" method="post">
                                 <select id="db" name="selectdb"></select>
-                                <p>Enter a genomic island id:</p>
-                                <input type="number" name="breakid" />
-                                <input type="submit" value="Submit" />
+                                <p>Enter a break id: 
+                                <input type="number" name="breakid" required/>
+                                <input type="submit" value="Submit" /> </p>
                         </form>
 		</div>
 	</body>

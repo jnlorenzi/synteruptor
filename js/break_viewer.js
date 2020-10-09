@@ -987,7 +987,7 @@ function update_graph(data) {
 }
 
 function break_info(info, num) {
-	var $break = $('#description' + num).text( 'Break in ' + info.sp + ' (part ' + info.gpart + '):' );
+	var $break = $('#description' + num).text( 'Genomic island in ' + info.sp + ' (part ' + info.gpart + '):' );
 	var $ul = $('<ul />');
 	if (info.content) {
                 const array_gene_add = ['CRISPR', 'phage', 'regulatory', 'resistance', 'transport'];
