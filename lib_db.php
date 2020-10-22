@@ -93,7 +93,8 @@ function get_db_data($dbh, $query, $vals = array(), $key = '') {
 		}
 		return $all_data;
 	} catch (PDOexception $e) {
-		die_msg('Query error', "''$query'' with values(" . join(', ', $vals) . ") [" . $e->getMessage()) . "]";
+//            die_msg('Query error', "''$query'' with values(" . join(', ', $vals) . ") [" . $e->getMessage()) . "]";
+            return array();
 	}
 }
 
@@ -506,6 +507,7 @@ function get_all_gparts($dbh) {
 function get_all_gocs($dbh) {
     $sp1 = $_GET['sp1'];
     $sp2 = $_GET['sp2'];
+
     $data = array(
         $sp1 => get_gocs($dbh, $sp1),
         $sp2 => get_gocs($dbh, $sp2),
