@@ -18,12 +18,28 @@ init_pars( {
 	'conditional' : 'OR',
 	'show_trnas': false,
 	'show_orthos': true,
+	'show_goc': true,
 	'show_breaks_circles': true,
 	'show_breaks_rects': true,
 	'breakid': '',
 	'strict': 10
 });
-var margin = {"top":30, right:60, bottom:60, left:90};
+const goc = {
+    left: 80,
+    right: 40,
+    width: 200,
+    "top": 20,
+    bottom: 40,
+    height: 200
+};
+const dot_margin = {
+    "top": 30,
+    right: 60,
+    bottom: goc.top + goc.bottom,
+    left: goc.left + goc.right
+};
+var margin = {};
+
 var scales = {};
 var zoom_vals = {};
 storage = $.localStorage;
@@ -107,6 +123,20 @@ function draw_plot() {
 		.attr("width", win_width)
 		.attr("height", win_height)
 		.attr( { "fill" : "transparent"});
+
+        // Change margins if we need to draw the GOC lines
+        margin = {
+            "left": dot_margin.left,
+            "right": dot_margin.right,
+            "top": dot_margin.top,
+            "bottom": dot_margin.bottom,
+        };
+        
+        // Shift the dotplot to make way for the GOC plots
+        if (get_par("show_goc")) {
+            margin.left += goc.width;
+            margin.bottom += goc.height;
+        }
 	
 	// Scale data to the plot
 	scales['x'] = d3.scale.linear().domain( [ get_par( 'start1' ), get_par( 'end1'   ) ] ).range( [ 0, win_width  - margin.left - margin.right  ] );
@@ -411,7 +441,7 @@ function draw_plot() {
 		.attr("class", "x label")
 		.attr("text-anchor", "middle")
 		.attr("x", (win_width - margin.left - margin.right) / 2 + margin.left)
-		.attr("y", win_height - 15)
+		.attr("y", win_height)
 		.text( cached_genomes.genomes[ get_par( 'sp1' ) ].name );
 	texts.append("text")
 		.attr("class", "y label")
@@ -420,6 +450,113 @@ function draw_plot() {
 		.attr("x", -((win_height - margin.top - margin.bottom) / 2 + margin.top))
 		.attr("transform", "rotate(-90)")
 		.text( cached_genomes.genomes[ get_par( 'sp2' ) ].name );
+
+    //////////////////////////////////////////////////////
+	// Draw GOC lines
+	var goc_container = svg.append("g")
+		.attr("name", "goc_drawing")
+		.attr("id", "goc_drawing");
+        
+        var gocy_container = goc_container.append("g")
+		.attr("transform", "translate(" + goc.left + "," + margin.top + ")");
+	gocy_container.append( "rect" )
+		.attr("x", 0)
+		.attr("y", 0)
+		.attr("width", goc.width )
+		.attr("height", win_height - margin.top - margin.bottom )
+		.attr( { "fill" : "white"});
+
+        var gocx_container = goc_container.append("g")
+		.attr("transform", "translate(" + margin.left + "," + (win_height - margin.bottom + goc.top) + ")");
+	gocx_container.append( "rect" )
+		.attr("x", 0)
+		.attr("y", 0)
+		.attr("width", win_width - margin.left - margin.right )
+		.attr("height", goc.height )
+		.attr( { "fill" : "white"});
+
+    ////////////////////////////////////////////////////////
+       // Lines
+	const gocx_lines = gocx_container
+		.append( "g" )
+		.attr("id", "gocx_lines");
+	const gocy_lines = gocy_container
+		.append( "g" )
+		.attr("id", "gocy_lines");
+
+	if (get_par( 'show_goc' ) == false) {
+		gocx_container.style({ "display": "none" });
+		gocy_container.style({ "display": "none" });
+	}
+
+        const goc1 = data.gocs[get_par("sp1")];
+        const goc2 = data.gocs[get_par("sp2")];
+
+        const gocx_scale = d3.scale.linear().domain( [0, 1] ).range( [goc.height, 0] );
+        const gocy_scale = d3.scale.linear().domain( [0, 1] ).range( [0, goc.width] );
+
+        var gocx_lineFunction = d3.svg.line()
+            .x(function(d) { return scales.x( d.pos ); })
+            .y(function(d) { return gocx_scale( d.score ); })
+                .interpolate("linear");
+        var gocy_lineFunction = d3.svg.line()
+            .x(function(d) { return gocy_scale( d.score ); })
+            .y(function(d) { return scales.y( d.pos ); })
+                .interpolate("linear");
+
+        gocx_lines.append("path")
+            .attr("d", gocx_lineFunction( goc1 ) )
+            .attr("stroke", "blue")
+            .attr("stroke-width", "2")
+            .attr("fill", "none");
+
+        gocy_lines.append("path")
+            .attr("d", gocy_lineFunction( goc2 ) )
+            .attr("stroke", "blue")
+            .attr("stroke-width", "2")
+            .attr("fill", "none");
+
+	// Add GOC X axes
+	const gocx_axes = gocx_container.append("g")
+		.attr( "name", "gocx_axes" )
+		.attr( "class", "svg_axes" )
+
+	const gocx_xAxis = d3.svg.axis().scale( scales.x ).orient( "bottom" );
+	gocx_axes.append("g")
+		.attr("transform", "translate(" + 0 + "," + goc.height + ")")
+		.attr("class", "x axis")
+		.call(gocx_xAxis);
+
+	const gocx_yAxis = d3.svg.axis().scale( gocx_scale ).orient( "left" );
+	gocx_axes.append("g")
+		.attr("class", "y axis")
+		.call(gocx_yAxis);
+	const gocx_yAxis_right = d3.svg.axis().scale( gocx_scale ).orient( "right" );
+	gocx_axes.append("g")
+		.attr("transform", "translate(" + (win_width - margin.left - margin.right) + "," + 0 + ")")
+		.attr("class", "y axis")
+		.call(gocx_yAxis_right);
+
+	// Add GOC Y axes
+	const gocy_axes = gocy_container.append("g")
+		.attr( "name", "gocy_axes" )
+		.attr( "class", "svg_axes" )
+
+	const gocy_yAxis = d3.svg.axis().scale( scales.y ).orient( "left" );
+	gocy_axes.append("g")
+		.attr("class", "y axis")
+		.call(gocy_yAxis);
+
+	const gocy_xAxis = d3.svg.axis().scale( gocy_scale ).orient( "bottom" );
+	gocy_axes.append("g")
+		.attr("transform", "translate(" + 0 + "," + (win_height - margin.top - margin.bottom) + ")")
+		.attr("class", "y axis")
+		.call(gocy_xAxis);
+
+	const gocy_xAxis_top = d3.svg.axis().scale( gocy_scale ).orient( "top" );
+	gocy_axes.append("g")
+		.attr("class", "y axis")
+		.call(gocy_xAxis_top);
 
 	// When the graph is drawn, prepare a file to dowload it
 	update_download_link( svg_style );
@@ -768,9 +905,10 @@ function define_menus_actions() {
 
 	show_hide_button( "show_trnas", "trnas_lines", "tRNA lines" );
 	show_hide_button( "show_orthos", "orthos_points", "free orthologs" );
+	show_hide_button( "show_goc", "goc_lines", "GOC lines" );
 	show_hide_button( "show_breaks_circles", "breaks_circles", "breaks markers (circles)" );
 	show_hide_button( "show_breaks_rects", "break_rectangles", "breaks limits (rectangles)" );
-	
+
 	$('#clear_cache').click(function(event) {
 		event.preventDefault();
 		console.log("Clear cache...");
@@ -791,6 +929,12 @@ function show_hide_button( parname, elementid, label ) {
 			$( this ).text( "Hide " + label );
 		}
 		update_permalink();
+
+                if (elementid == "goc_lines") {
+                    console.log("Rebuild dotplot after after toggling GOC");
+                    draw_plot();
+                }
+	
 	});
 }
 
@@ -824,3 +968,4 @@ $(function() {
 			});
 		});
 });
+
