@@ -124,6 +124,7 @@ function get_dotplot_lists($dbh) {
 			'blocks' => get_all_blocks($dbh),
 			'breaks' => get_all_breaks($dbh),
 			'orthos' => get_all_orthos($dbh),
+			'gocs'   => get_all_gocs($dbh),
 			'trnas' => array(
 				'1' => get_all_trnas($dbh, 1),
 				'2' => get_all_trnas($dbh, 2)

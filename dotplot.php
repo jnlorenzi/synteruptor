@@ -55,6 +55,7 @@ print_header("viewer", "Dotplot");
 			<div class="subbox">
 				<div class="boxtitle">Advanced display options...</div>
 				<div class="boxcontent">
+				<button id="show_goc">Hide GOC lines</button>
 				<button id="show_trnas">Show tRNAs lines</button>
 				<button id="show_orthos">Hide free orthologs (not in synteny blocks)</button>
 				<button id="show_breaks_circles">Hide breaks markers (circles)</button>

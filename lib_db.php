@@ -4,12 +4,17 @@ $dbdir = get_setting("db_dir");
 /**********************************************************/
 // Check variable type (convert if necessary)
 function parseVal($dat) {
-	foreach ($dat as $key => $val) {
-		if ( ctype_digit( $val ) ) {
-			$dat[ $key ] = intval( $val );
-		}
-	}
-	return $dat;
+    foreach ($dat as $key => $val) {
+        if ( ctype_digit( $val ) ) {
+            $dat[ $key ] = intval( $val );
+        } elseif (is_numeric($val)) {
+            $dat[ $key ] = floatval( $val );
+        } elseif (preg_match("/^\d+,\d+$/", $val)) {
+            $val = str_replace(",", ".", $val);
+            $dat[ $key ] = floatval( $val );
+        }
+    }
+    return $dat;
 }
 
 // Json dying message
@@ -88,7 +93,8 @@ function get_db_data($dbh, $query, $vals = array(), $key = '') {
 		}
 		return $all_data;
 	} catch (PDOexception $e) {
-		die_msg('Query error', "''$query'' with values(" . join(', ', $vals) . ") [" . $e->getMessage()) . "]";
+//            die_msg('Query error', "''$query'' with values(" . join(', ', $vals) . ") [" . $e->getMessage()) . "]";
+            return array();
 	}
 }
 
@@ -170,7 +176,6 @@ function get_genomes_orthos($dbh) {
 	}
 	return $data;
 }
-
 
 function get_genomes_stats($dbh) {
 	$query = "SELECT sp1, sp2, count(*) AS blocks_count, sum(block_size) AS blocks_sum FROM blocks_all GROUP BY sp1, sp2;";
@@ -498,5 +503,25 @@ function get_all_gparts($dbh) {
 	}
 	return $gparts;
 }
+
+function get_all_gocs($dbh) {
+    $sp1 = $_GET['sp1'];
+    $sp2 = $_GET['sp2'];
+
+    $data = array(
+        $sp1 => get_gocs($dbh, $sp1),
+        $sp2 => get_gocs($dbh, $sp2),
+    );
+    return $data;
+}
+
+function get_gocs($dbh, $sp) {
+	$conds = array(
+		'sp=?' =>  $sp,
+	);
+	$query = "SELECT pos, score FROM goc WHERE " . get_cond($conds);
+	return get_db_data($dbh, $query, get_vals($conds));
+}
+
 ?>
 
