@@ -1,6 +1,7 @@
 <?php
 require_once("common.php");
 $dbdir = get_setting("db_dir");
+
 /**********************************************************/
 // Check variable type (convert if necessary)
 function parseVal($dat) {
@@ -507,21 +508,22 @@ function get_all_gparts($dbh) {
 function get_all_gocs($dbh) {
     $sp1 = $_GET['sp1'];
     $sp2 = $_GET['sp2'];
-
-    $data = array(
-        $sp1 => get_gocs($dbh, $sp1),
-        $sp2 => get_gocs($dbh, $sp2),
+        $data = array(
+        $sp1 => get_gocs($dbh, $sp1, $sp2),
+        $sp2 => get_gocs($dbh, $sp2, $sp1),
     );
     return $data;
 }
 
-function get_gocs($dbh, $sp) {
+function get_gocs($dbh, $sp, $sp2) {
 	$conds = array(
 		'sp=?' =>  $sp,
+		'sp2=?' => $sp2,
 	);
 	$query = "SELECT pos, score FROM goc WHERE " . get_cond($conds);
 	return get_db_data($dbh, $query, get_vals($conds));
 }
+
 
 ?>
 
