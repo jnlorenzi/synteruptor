@@ -21,11 +21,12 @@ var head_fields = [
                 'title': 'Contig&nbsp;accession number&nbsp;in genome&nbsp;2',
 		'desc': 'Name of the contig of the genome 2'
 	},
-	{
-		'name': 'tRNA_both',
-                'title': 'tRNA&nbsp;genes present&nbsp;in&nbsp;the genomic&nbsp;islands',
-		'desc': '"2/both" if a tRNA is present in the genomic island in both genomes, "1/one" if only in one genome'
-	},
+// 	{
+//                 // remove tRNA_both
+// 		'name': 'tRNA_both',
+//              'title': 'tRNA&nbsp;genes present&nbsp;in&nbsp;the genomic&nbsp;islands',
+// 		'desc': '"2/both" if a tRNA is present in the genomic island in both genomes, "1/one" if only in one genome'
+// 	},
 	{
 		'name': 'tRNA_both_ext',
                 'title': 'tRNA&nbsp;genes adjacent&nbsp;to&nbsp;the genomic&nbsp;islands',
@@ -104,7 +105,8 @@ var head_fields = [
 ];
 
 var default_sort_vals = {
-	'tRNA_both': 500,
+        //remove tRNA both
+// 	'tRNA_both': 500,
 	'tRNA_both_ext': 500,
 	'cycle': 100,
 	'noorthos1': 10,
