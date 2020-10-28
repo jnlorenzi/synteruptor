@@ -515,9 +515,9 @@ function get_all_gocs($dbh) {
     return $data;
 }
 
-function get_gocs($dbh, $sp, $sp2) {
+function get_gocs($dbh, $sp1, $sp2) {
 	$conds = array(
-		'sp=?' =>  $sp,
+		'sp1=?' =>  $sp1,
 		'sp2=?' => $sp2,
 	);
 	$query = "SELECT pos, score FROM goc WHERE " . get_cond($conds);
