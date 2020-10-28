@@ -69,7 +69,7 @@ var head_fields = [
 	},
 	{
 		'name': 'content1',
-                'title': 'Genes&nbsp;annotations overview&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;1',
+                'title': 'Gene&nbsp;annotation overview&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;1',
 		'desc': 'Summary of the genes annotations in the break in genome 1'
 	},
 	{
