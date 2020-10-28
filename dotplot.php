@@ -84,12 +84,12 @@ print_header("viewer", "Dotplot");
 				<div class="boxtitle">Dotplot help...</div>
 				<div class="boxcontent">
 					<ul>
-						<li><svg style="width:10px; height: 10px"><g><rect x="10" y="10"/></g></svg>The circles pinpoint the breaks (zoom-independant)</li>
+						<li><svg style="width:1px; height: 10px"><g><rect x="10" y="10"/></g></svg>The red circles pinpoint the breaks (zoom-independant)</li>
 						<li>The breaks themselves are represented as rectangles (zoom usually necessary)</li>
 						<li>To zoom:<ul>
 							<li>Scrool up with the mouse to zoom in (the zoom will be centered on the image)</li>
 							<li>Scrool down with the mouse to zoom out (the zoom will be centered on the image)</li>
-							<li><b>Draw a rectangle over a region of interest</b> and scroll up with the mouse, to zoom in this exact region</li>
+							<li>Draw a rectangle over a region of interest and scroll up with the mouse, to zoom in this exact region</li>
 							<li>Write the coordinates in the genomes fields and update the graph</li>
 						</ul></li>
 					</ul>
