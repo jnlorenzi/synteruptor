@@ -489,8 +489,9 @@ function draw_plot() {
 		gocy_container.style({ "display": "none" });
 	}
 
-        const goc1 = data.gocs[get_par("sp1")];
-        const goc2 = data.gocs[get_par("sp2")];
+        // FIlter data
+        const goc1 = data.gocs[get_par("sp1")].filter(function(d) { return d.pos >= get_par( 'start1' ) && d.pos <= get_par( 'end1' ) });
+        const goc2 = data.gocs[get_par("sp2")].filter(function(d) { return d.pos >= get_par( 'start2' ) && d.pos <= get_par( 'end2' ) });
 
         const gocx_scale = d3.scale.linear().domain( [0, 1] ).range( [goc.height, 0] );
         const gocy_scale = d3.scale.linear().domain( [0, 1] ).range( [0, goc.width] );
