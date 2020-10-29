@@ -530,6 +530,11 @@ function build_table (data, block, num, direction) {
 		"title": "End",
 		"desc": "Genomes coordinates of the start of the gene",
 	},
+        {
+                "name": "loc_orientation",
+                "title": "Orientation",
+                "desc": "Orientation of the gene: sens: '+', antisens: '-'"
+        },
 	{
 		"name": "loc_length",
 		"title": "Length",
@@ -566,7 +571,7 @@ function build_table (data, block, num, direction) {
 	// Add 1 row = 1 gene
 	for (g in genes) {
 		gene_data = genes[g];
-		gene_data['loc_start'] = parseInt(gene_data['loc_start']);
+                gene_data['loc_start'] = parseInt(gene_data['loc_start']);
 		gene_data['loc_end'] = parseInt(gene_data['loc_end']);
 		
 		// Min, max
@@ -593,21 +598,33 @@ function build_table (data, block, num, direction) {
 		// Length of protein or gene
 		len = gene_data['feat'] == 'CDS' ? Math.floor(gene_data['loc_length']/3) + '&nbsp;aa' : gene_data['loc_length'] + '&nbsp;bp';
 		// Direction of the gene (e.g. strand)
+                
 		dir = gene_data['strand'];
-		dir_sign = (dir == -1 ? '-' : '+');
+                dir_sign = (dir == -1 ? '-' : '+');
+                
 		var seqid = make_seqid(gene_data, orthos);
 		var blast_link = make_blast_link(gene_data, data.can_search);
 		var gcbox = format_GC(gene_data.delta_GC);
 		
+                if (dir_sign == '+') {
+                        temp_start_loc = format_number(gene_data['loc_start']);
+                        temp_end_loc = format_number(gene_data['loc_end']);
+                        
+                } else if (dir_sign == '-') {
+                        temp_start_loc = format_number(gene_data['loc_end']);
+                        temp_end_loc = format_number(gene_data['loc_start']);
+                }
+                
 		// Data list
 		var list = [
 			gene_data['pnum_all'],
 			blast_link,
 			seqid,
 			product,
-			format_number(gene_data['loc_start']),
-			format_number(gene_data['loc_end']),
-                        dir_sign + "&nbsp;" + len,
+                        temp_start_loc,
+                        temp_end_loc,
+                        dir_sign,
+                        len,
 			gcbox
 		];
 		
