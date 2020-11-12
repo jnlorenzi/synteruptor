@@ -229,7 +229,7 @@ function make_list_link(gene_data, name) {
 
 function format_GC(val) {
 	var gc = (val * 100).toFixed(0);
-	gcbox = $("<td />").text(( gc > 0 ? "+" : "" ) + gc + "%");
+	gcbox = $("<p />").text(( gc > 0 ? "+" : "" ) + gc + "%");
 	gcbox.addClass("gcbox");
 	if (gc == 0 || Math.abs(gc) < 0.5) {
 		gcbox.addClass("gc_zero");

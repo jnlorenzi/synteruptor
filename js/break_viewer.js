@@ -635,10 +635,6 @@ function build_table (data, block, num, direction) {
 			if (l == 1) {
 				$td.addClass("blast_col");
 			}
-			// Gc: make the box = td
-			if (l == 7) {
-				$td = list[l];
-			}
 			$trow.append($td);
 		}
 		if (gene_data['feat'] == 'tRNA') {
