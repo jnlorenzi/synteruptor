@@ -596,7 +596,7 @@ function build_table (data, block, num, direction) {
 		var product_text = gene_data['feat'] == 'CDS' ? product_name : gene_data['feat'] + ' ' + product_name;
 		var product = "<span class='product'>" + product_text + "</span>";
 		// Length of protein or gene
-		len = gene_data['feat'] == 'CDS' ? Math.floor(gene_data['loc_length']/3) + '&nbsp;aa' : gene_data['loc_length'] + '&nbsp;bp';
+                len_str = format_length(gene_data['feat'], gene_data['loc_length']);
 
 		// Strand of the gene
 		var dir = format_strand(gene_data['strand']);
@@ -624,7 +624,7 @@ function build_table (data, block, num, direction) {
                         temp_start_loc,
                         temp_end_loc,
                         dir,
-                        len,
+                        len_str,
 			gcbox
 		];
 		

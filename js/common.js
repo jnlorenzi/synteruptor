@@ -257,6 +257,19 @@ function format_strand(val) {
     return dir;
 }
 
+function format_length(feat, loc_length) {
+    len_str = ''
+    if (feat == 'CDS') {
+        len_str = Math.floor(loc_length/3) + '&nbsp;aa';
+    } else {
+        len_str = loc_length + '&nbsp;bp'
+    }
+    var len = $('<p />')
+        .html(len_str)
+        .attr( "class", "loc_length" );
+    return len;
+}
+
 function loading_on(text) {
 	var $l = $("#loading");
 	$l.empty();

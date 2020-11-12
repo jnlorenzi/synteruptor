@@ -90,7 +90,7 @@ function update_table(data) {
 			rank++;
 			bdata.rank = rank;
 			$row = $('<tr />');
-			
+
 			for (h in heads) {
 				var name = heads[h].name;
 				var $cell = $('<td />');
@@ -117,6 +117,9 @@ function update_table(data) {
 				}
 				else if (name == "strand") {
                                         val = format_strand(val);
+				}
+				else if (name == "loc_length") {
+                                        val = format_length(bdata["feat"], val);
 				}
 				$cell.html(val);
 				$row.append($cell);
