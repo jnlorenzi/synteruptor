@@ -49,6 +49,11 @@ function update_table(data) {
 				"title": "End",
 				"desc": "Genomes coordinates of the start of the gene",
 			},
+                        {
+                                "name": "strand",
+                                "title": "Strand",
+                                "desc": "Strand of the gene: sense = +, antisense = -"
+                        },
 			{
 				"name": "loc_length",
 				"title": "Length",
@@ -109,6 +114,9 @@ function update_table(data) {
 				}
 				else if (name == "loc_start" || name == "loc_end") {
 					val = format_number(val);
+				}
+				else if (name == "strand") {
+                                        val = format_strand(val);
 				}
 				$cell.html(val);
 				$row.append($cell);

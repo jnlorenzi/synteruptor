@@ -249,6 +249,14 @@ function format_GC(val) {
 	return gcbox;
 }
 
+function format_strand(val) {
+    var dir_sign = (val == -1 ? '-' : '+');
+    var dir = $('<p />')
+        .text(dir_sign)
+        .attr( "class", "strand_sign" );
+    return dir;
+}
+
 function loading_on(text) {
 	var $l = $("#loading");
 	$l.empty();
