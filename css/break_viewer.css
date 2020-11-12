@@ -284,3 +284,10 @@ th.headerSortDown {
 	stroke-width: 1;
 }
 
+.strand_sign {
+	margin-left: auto;
+	margin-right: auto;
+        width: 50%;
+        text-align: center;
+}
+

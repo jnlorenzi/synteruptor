@@ -597,10 +597,13 @@ function build_table (data, block, num, direction) {
 		var product = "<span class='product'>" + product_text + "</span>";
 		// Length of protein or gene
 		len = gene_data['feat'] == 'CDS' ? Math.floor(gene_data['loc_length']/3) + '&nbsp;aa' : gene_data['loc_length'] + '&nbsp;bp';
+
 		// Direction of the gene (e.g. strand)
-                
-		dir = gene_data['strand'];
-                dir_sign = (dir == -1 ? '-' : '+');
+		var dir = gene_data['strand'];
+                var dir_sign = (dir == -1 ? '-' : '+');
+                var dir_str = $('<p />')
+                        .text(dir_sign)
+        		.attr( "class", "strand_sign" );
                 
 		var seqid = make_seqid(gene_data, orthos);
 		var blast_link = make_blast_link(gene_data, data.can_search);
@@ -623,7 +626,7 @@ function build_table (data, block, num, direction) {
 			product,
                         temp_start_loc,
                         temp_end_loc,
-                        dir_sign,
+                        dir_str,
                         len,
 			gcbox
 		];
