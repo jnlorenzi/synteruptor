@@ -532,8 +532,8 @@ function build_table (data, block, num, direction) {
 	},
         {
                 "name": "loc_orientation",
-                "title": "Orientation",
-                "desc": "Orientation of the gene: sens: '+', antisens: '-'"
+                "title": "Strand",
+                "desc": "Strand of the gene: sense = +, antisense = -"
         },
 	{
 		"name": "loc_length",
