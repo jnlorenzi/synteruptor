@@ -532,8 +532,8 @@ function build_table (data, block, num, direction) {
 	},
         {
                 "name": "loc_orientation",
-                "title": "Orientation",
-                "desc": "Orientation of the gene: sens: '+', antisens: '-'"
+                "title": "Strand",
+                "desc": "Strand of the gene: sense = +, antisense = -"
         },
 	{
 		"name": "loc_length",
@@ -596,11 +596,11 @@ function build_table (data, block, num, direction) {
 		var product_text = gene_data['feat'] == 'CDS' ? product_name : gene_data['feat'] + ' ' + product_name;
 		var product = "<span class='product'>" + product_text + "</span>";
 		// Length of protein or gene
-		len = gene_data['feat'] == 'CDS' ? Math.floor(gene_data['loc_length']/3) + '&nbsp;aa' : gene_data['loc_length'] + '&nbsp;bp';
-		// Direction of the gene (e.g. strand)
-                
-		dir = gene_data['strand'];
-                dir_sign = (dir == -1 ? '-' : '+');
+                len_str = format_length(gene_data['feat'], gene_data['loc_length']);
+
+		// Strand of the gene
+		var dir = format_strand(gene_data['strand']);
+                var dir_sign = dir.text();
                 
 		var seqid = make_seqid(gene_data, orthos);
 		var blast_link = make_blast_link(gene_data, data.can_search);
@@ -623,8 +623,8 @@ function build_table (data, block, num, direction) {
 			product,
                         temp_start_loc,
                         temp_end_loc,
-                        dir_sign,
-                        len,
+                        dir,
+                        len_str,
 			gcbox
 		];
 		
@@ -634,10 +634,6 @@ function build_table (data, block, num, direction) {
 			$td.html(list[l]);
 			if (l == 1) {
 				$td.addClass("blast_col");
-			}
-			// Gc: make the box = td
-			if (l == 7) {
-				$td = list[l];
 			}
 			$trow.append($td);
 		}
