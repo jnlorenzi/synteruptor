@@ -229,7 +229,7 @@ function make_list_link(gene_data, name) {
 
 function format_GC(val) {
 	var gc = (val * 100).toFixed(0);
-	gcbox = $("<td />").text(( gc > 0 ? "+" : "" ) + gc + "%");
+	gcbox = $("<p />").text(( gc > 0 ? "+" : "" ) + gc + "%");
 	gcbox.addClass("gcbox");
 	if (gc == 0 || Math.abs(gc) < 0.5) {
 		gcbox.addClass("gc_zero");
@@ -247,6 +247,27 @@ function format_GC(val) {
 		gcbox.addClass("gc_low");
 	}
 	return gcbox;
+}
+
+function format_strand(val) {
+    var dir_sign = (val == -1 ? '-' : '+');
+    var dir = $('<p />')
+        .text(dir_sign)
+        .attr( "class", "strand_sign" );
+    return dir;
+}
+
+function format_length(feat, loc_length) {
+    len_str = ''
+    if (feat == 'CDS') {
+        len_str = Math.floor(loc_length/3) + '&nbsp;aa';
+    } else {
+        len_str = loc_length + '&nbsp;bp'
+    }
+    var len = $('<p />')
+        .html(len_str)
+        .attr( "class", "loc_length" );
+    return len;
 }
 
 function loading_on(text) {

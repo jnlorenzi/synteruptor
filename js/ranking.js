@@ -131,8 +131,7 @@ function update_table(data) {
 					$cell.addClass('trna');
 				}
 				if (col == 'delta_GC1' || col == 'delta_GC2') {
-					val = val * 100;
-					val = val.toFixed(1) + "%";
+					val = format_GC(val);
 				}
 				if (col == 'score') {
 					val = val.toFixed(0);

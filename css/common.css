@@ -174,8 +174,14 @@ thead th {
 	margin-left: 10px;
 }
 
+.loc_length {
+        margin-right:0.2em;
+        text-align: right;
+}
 .gcbox {
-	border: 0;
+	margin: auto;
+        width: 50%;
+        text-align: right;
 }
 .gc_vhigh {
 	color: #0D0;
