@@ -39,42 +39,42 @@ var head_fields = [
 	},
 	{
 		'name': 'break_size2',
-                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the genomic&nbsp;island in&nbsp;genome&nbsp;1',
-                'desc': 'Total number of CDS found in the genomic island in genome 1'
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the genomic&nbsp;island of&nbsp;genome&nbsp;1',
+                'desc': 'Total number of CDS found in the genomic island of genome 1'
 	},
 	{
 		'name': 'break_size1',
-                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the genomic&nbsp;island in&nbsp;genome&nbsp;2',
-                'desc': 'Total number of CDS found in the genomic island in genome 2'
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the genomic&nbsp;island of&nbsp;genome&nbsp;2',
+                'desc': 'Total number of CDS found in the genomic island of genome 2'
 	},
 	{
 		'name': 'noorthos1',
-                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;1 without&nbsp;ortholog in&nbsp;genome&nbsp;2',
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island of&nbsp;genome&nbsp;1 without&nbsp;orthologs in&nbsp;genome&nbsp;2',
                 'desc': 'Number of CDS in the genomic island in genome 1 without any orthologs in the genome 2'
 	},
 	{
 		'name': 'noorthos2',
-                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;2 without&nbsp;ortholog in&nbsp;genome&nbsp;1',
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island of&nbsp;genome&nbsp;2 without&nbsp;orthologs in&nbsp;genome&nbsp;1',
                 'desc': 'Number of CDS in the genomic island in genome 2 without any orthologs in the genome 1'
 	},
 	{
 		'name': 'paralogs1',
-                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;1 with&nbsp;at&nbsp;least one&nbsp;paralog',
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island of&nbsp;genome&nbsp;1 with&nbsp;at&nbsp;least one&nbsp;paralog',
 		'desc': 'Number of CDS in genome 1 with at least one paralog in the same genome'
 	},
 	{
 		'name': 'paralogs2',
-                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;2 with&nbsp;at&nbsp;least one&nbsp;paralog',
+                'title': 'Number&nbsp;of CDSs&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island of&nbsp;genome&nbsp;2 with&nbsp;at&nbsp;least one&nbsp;paralog',
 		'desc': 'Number of CDS in genome 2 with at least one paralog in the same genome'
 	},
 	{
 		'name': 'content1',
-                'title': 'Gene&nbsp;annotation overview&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;1',
+                'title': 'Gene&nbsp;annotation overview&nbsp;of&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;1',
 		'desc': 'Summary of the genes annotations in the break in genome 1'
 	},
 	{
 		'name': 'content2',
-                'title': 'Gene&nbsp;annotation overview&nbsp;in&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;2',
+                'title': 'Gene&nbsp;annotation overview&nbsp;of&nbsp;the&nbsp; genomic&nbsp;island in&nbsp;genome&nbsp;2',
 		'desc': 'Summary of the genes annotations in the break in genome 2'
 	},
 	{

@@ -72,8 +72,11 @@ require_once('common.php');
 	<div id="tail">
 		<ul>
 			<li><a href="//www.agence-nationale-recherche.fr/?Projet=ANR-13-BSV6-0009"><img src="css/LogoANR_175.png" title="ANR Migenis" "Link to ANR Migenis" /></a></li>
-			<li><a href="//u-psud.fr"><img src="css/LogoUPSUD_200.png" title="Université Paris-Sud" alt="Link to University Paris-Sud" /></a></li>
+			<li><a href="http://www.universite-paris-saclay.fr/en"><img src="css/LogoPS.png" title="Université Paris-Saclay" alt="Link to University Paris-Saclay" /></a></li>
 			<li><a href="//www.i2bc.paris-saclay.fr/?lang=en"><img src="css/LogoI2BC.png" title="I2BC" alt="Link to I2BC" /></a></li>
+			<li><a href="http://dynamic.univ-lorraine.fr/?lang=en"><img src="css/LogoDYNAMIC.png" title="DYNAMIC" alt="Link to DYNAMIC" /></a></li>
+			<li><a href="http://www.inrae.fr/en"><img src="css/LogoINRAE.png" title="INRAE" alt="Link to INRAE" /></a></li>
+			<li><a href="http://www.univ-lorraine.fr/"><img src="css/LogoUL.png" title="UL" alt="Link to UL" /></a></li>
 		</ul>
 	</div>
 	</div>

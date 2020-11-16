@@ -86,6 +86,7 @@ print_header("viewer", "Dotplot");
 					<ul>
 						<li><svg style="width:1px; height: 10px"><g><rect x="10" y="10"/></g></svg>The red circles pinpoint the breaks (zoom-independant)</li>
 						<li>The breaks themselves are represented as rectangles (zoom usually necessary)</li>
+						<li>The GOC is a local estimator of the synteny between two chromosomes. It corresponds to the number of adjacent orthologs divided by the number of CDS in a sliding window measuring 3% of the genome size</li>
 						<li>To zoom:<ul>
 							<li>Scrool up with the mouse to zoom in (the zoom will be centered on the image)</li>
 							<li>Scrool down with the mouse to zoom out (the zoom will be centered on the image)</li>

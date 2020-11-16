@@ -559,6 +559,25 @@ function draw_plot() {
 		.attr("class", "y axis")
 		.call(gocy_xAxis_top);
 
+// #### EDIT IN PROGRESS               
+        // Add GOC labels
+	var texts = svg.append("g");
+	
+	texts.append("text")
+		.attr("class", "y_goc label")
+		.attr("text-anchor", "middle")
+		.attr("x", 180)
+		.attr("y", 485)
+		.text( "GOC" );
+	texts.append("text")
+		.attr("class", "x_goc label")
+		.attr("text-anchor", "middle")
+                .attr("y", margin.left - 40)
+		.attr("x", -567)
+		.attr("transform", "rotate(-90)")
+		.text( "GOC" );
+// #####                
+                
 	// When the graph is drawn, prepare a file to dowload it
 	update_download_link( svg_style );
 	update_stats( stats );
@@ -905,7 +924,7 @@ function define_menus_actions() {
 	});
 
 	show_hide_button( "show_trnas", "trnas_lines", "tRNA lines" );
-	show_hide_button( "show_orthos", "orthos_points", "free orthologs" );
+	show_hide_button( "show_orthos", "orthos_points", "free orthologs (not in synteny blocks)" );
 	show_hide_button( "show_goc", "goc_lines", "GOC lines" );
 	show_hide_button( "show_breaks_circles", "breaks_circles", "breaks markers (circles)" );
 	show_hide_button( "show_breaks_rects", "break_rectangles", "breaks limits (rectangles)" );

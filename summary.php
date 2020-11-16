@@ -16,7 +16,7 @@
 		<?php print_header("viewer"); ?>
 		<div id="content">
 			<div id="message"></div>
-			<h3>Genomes characteristics</h3>
+			<h3>Genome characteristics</h3>
 			<table id="genomes" style="display:none"></table>
 			<div id="links" style="display:none"><ul></ul></div>
 			<div class="centered_box">

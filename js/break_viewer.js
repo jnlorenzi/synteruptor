@@ -1002,7 +1002,40 @@ function update_graph(data) {
 function break_info(info, num) {
 	var $break = $('#description' + num).text( 'Genomic island in ' + info.sp + ' (part ' + info.gpart + '):' );
 	var $ul = $('<ul />');
-	if (info.content) {
+
+	var genes = 'no genes';
+	if ( info.ngenes == 1 ) {
+		genes = "1 gene";
+	} else if (info.ngenes > 1) {
+		genes = info.ngenes + " genes";
+	}
+	$ul.append( $('<li />').text( genes ) );
+	var $ul2 = $( '<ul />' );
+	var nCDS = "no CDS";
+	if (info.nCDS > 0) {
+		nCDS = info.nCDS + " CDS";
+	}
+	$ul2.append( $('<li />').text( nCDS ) );
+	if (info.nCDS > 0) {
+		$cds_ul = $( '<ul />' );
+		$cds_ul.append( $('<li />').html( info.no_orthos + " <span class='legend_noortho" + num + "'>CDS without ortholog</span>" ) );
+		$cds_ul.append( $('<li />').html( info.orthos + " <span class='legend_ortho" + num + "'>CDS with ortholog</span>" ) );
+		if (info.paros > 0) {
+			$cds_ul.append( $('<li />').html( info.paros + " <span class='legend_paro" + num + "'>CDS with paralogs</span>" ) );
+		}
+		$ul2.append( $cds_ul );
+	}
+	
+	if (info.others > 0) {
+		var nothers = "1 other gene (including <span class='legend_other'>RNAs</span> and <span class='legend_pseudo'>pseudogenes</span>)";
+		if (info.others > 1) {
+			nothers = info.others + " other genes (including <span class='legend_other'>RNAs</span> and <span class='legend_pseudo'>pseudogenes</span>)";
+		}
+		$ul2.append( $('<li />').html( nothers ) );
+	}
+	$ul.append($ul2);
+	
+        if (info.content) {
                 const array_gene_add = ['CRISPR', 'phage', 'regulatory', 'resistance', 'transport'];
                 const array_element_add = ['mobile'];
                 const array_no_add = ['SM', 'tRNA'];
@@ -1030,41 +1063,9 @@ function break_info(info, num) {
                         new_info.push(new_handler);
                 }
                 var temp_info = new_info.join( ', ' )
-                $ul.append( $('<li />').html( "Content: " +  temp_info) );
-//                 $ul.append( $('<li />').html( "Content: " +  info.content) );
-	}
-	var genes = 'no genes';
-	if ( info.ngenes == 1 ) {
-		genes = "1 gene";
-	} else if (info.ngenes > 1) {
-		genes = info.ngenes + " genes";
-	}
-	$ul.append( $('<li />').text( genes ) );
-	var $ul2 = $( '<ul />' );
-	var nCDS = "no CDS";
-	if (info.nCDS > 0) {
-		nCDS = info.nCDS + " CDS";
-	}
-	$ul2.append( $('<li />').text( nCDS ) );
-	if (info.nCDS > 0) {
-		$cds_ul = $( '<ul />' );
-		$cds_ul.append( $('<li />').html( info.no_orthos + " <span class='legend_noortho" + num + "'>CDS without ortholog</span>" ) );
-		$cds_ul.append( $('<li />').html( info.orthos + " <span class='legend_ortho" + num + "'>CDS with ortholog</span>" ) );
-		if (info.paros > 0) {
-			$cds_ul.append( $('<li />').html( info.paros + " <span class='legend_paro" + num + "'>CDS with paralogs</span>" ) );
-		}
-		$ul2.append( $cds_ul );
-	}
-	
-	if (info.others > 0) {
-		var nothers = "1 other genes (including <span class='legend_other'>RNAs</span> and <span class='legend_pseudo'>pseudogenes</span>)";
-		if (info.others > 1) {
-			nothers = info.others + " other genes (including <span class='legend_other'>RNAs</span> and <span class='legend_pseudo'>pseudogenes</span>)";
-		}
-		$ul2.append( $('<li />').html( nothers ) );
-	}
-	$ul.append($ul2);
-	
+                $ul.append( $('<li />').html( "Notable content: " +  temp_info) );
+        }
+        
 	if (info.nCDS > 0) {
 		// Add GC content stats
 		var $gc_line = $("<li />");
