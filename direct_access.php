@@ -28,16 +28,17 @@ require_once('common.php');
 			<?php
 				$allowed = get_available_dbs_list();
 				if ($allowed) {
-					echo "<p>Select a database:";
+					echo "<p>Select a public database:";
 					echo "<div id='databases'></div>";
 					echo "</p>";
 				} else {
 					echo "<p>No public database available</p>";
 				}
 			?>
-			
 			<form action="cible_da.php" method="post">
                                 <select id="db" name="selectdb"></select>
+                                <p> Or enter a private database id:
+                                <input type="text" name="private_db" /> </p>
                                 <p>Enter a break id: 
                                 <input type="number" name="breakid" required/>
                                 <input type="submit" value="Submit" /> </p>
